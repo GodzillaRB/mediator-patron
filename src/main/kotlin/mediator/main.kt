@@ -17,5 +17,10 @@ fun main() {
         sale.addProduct(Product("Product" + (c + 1)))
     }
 
+    try {
         client.createSale(sale)
+
+    } catch (e: NullPointerException){
+        println("Operacion terminada")
+    }
 }

@@ -20,6 +20,10 @@ class PurchaseModule : AbstractModule() {
     }
 
     override fun notifyMessage(message: ModuleMessage): Any {
+        if (message == null){
+            println("Valor nulo")
+        }
+
         when (message!!.getMessageType()) {
             OPERATION_PURCHASE_REQUEST -> return purchaseRequest(message)!!
             else -> throw RuntimeException("Operación no soportada '${message!!.getMessageType()}'")
